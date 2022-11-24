@@ -1,9 +1,27 @@
+<!DOCTYPE html>
 <html>
 
+	<head>
+	</head>
+
 	<body>
+
+		<script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+		<script>
+
+		MinecraftAPI.getServerStatus('duck-empire.de', {port: 25565}, function (err, status) {
+        if (err) {
+            return document.getElementById("server_status").innerHTML = 'Error loading status';
+        }
+
+        document.getElementById("server_status").innerHTML = status.online ? 'server is online' : 'server is offline!';
+    });
+
+		</script>
 	
 		WELCOME
-
+		<p id="server_status">lol</p>
+ 
 	</body>
 
 </html>
