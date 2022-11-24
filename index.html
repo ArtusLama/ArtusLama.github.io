@@ -19,12 +19,14 @@
 	*/
 
 		var ip = "duck-empire.de";
+		
 		setInterval(updateServerInformation, 5000);
 		
 		function updateServerInformation() {
 			fetch("https://mcapi.us/server/status?ip=" + ip)
 			.then(response => response.json())
 			.then(data => {
+				document.getElementById("ip").innerHTML = ip;
 				document.getElementById("status").innerHTML = data["online"] ? "online" : "offline";
 				document.getElementById("players").innerHTML = data["players"]["now"] + "/" + data["players"]["max"];
 				document.getElementById("logo").src = data["favicon"];
@@ -35,6 +37,7 @@
 		</script>
 	
 		WELCOME
+		<p>Server ip: <span id="ip"></span></p>
 		<p>Server status: <span id="status"></span></p>
 		<p>Players online: <span id="players"></span></p>
 		<img src="" alt="ServerIcon" id="logo">
