@@ -1,39 +1,15 @@
 <!DOCTYPE html>
-<html>
-
-	<head>
-	</head>
-
-	<body>
-
-		<script src="https://mcapi.us/scripts/minecraft.min.js"></script>
-		<script>
-
-		var ip = "SmashMC.eu";
-		
-		updateServerInformation()
-		setInterval(updateServerInformation, 60000);
-		
-		function updateServerInformation() {
-			fetch("https://mcapi.us/server/status?ip=" + ip)
-			.then(response => response.json())
-			.then(data => {
-				document.getElementById("ip").innerHTML = ip;
-				document.getElementById("status").innerHTML = data["online"] ? "online" : "offline";
-				document.getElementById("players").innerHTML = data["players"]["now"] + "/" + data["players"]["max"];
-				document.getElementById("logo").src = data["favicon"];
-			})
-		}
-		
-
-		</script>
-	
-		WELCOME
-		<p>Server ip: <span id="ip"></span></p>
-		<p>Server status: <span id="status"></span></p>
-		<p>Players online: <span id="players"></span></p>
-		<img src="" alt="ServerIcon" id="logo">
- 
-	</body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+    <script type="module" crossorigin src="/assets/index-22bb97c8.js"></script>
+    <link rel="stylesheet" href="/assets/index-81e4655a.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    
+  </body>
 </html>
